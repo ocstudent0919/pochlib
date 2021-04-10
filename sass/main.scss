@@ -1,0 +1,184 @@
+//Defining colours:
+$colour-primary: #fff;
+$colour-button: #1D9A8D;
+$colour-contrast: complement($colour-button);
+$colour-index: 5%;
+$colour-accent-light: darken($colour-primary, $colour-index*4);
+$colour-accent-dark: darken($colour-primary, $colour-index*12);
+ // Defining dimensions:
+$padding-min: 2px;
+$margin-default: 0.83rem;
+// Defining path:
+$path-image: "../images/bookshelfs.jpg";
+// Defining breakpoints for @media queries:
+$screen-sm: 768px;
+$screen-md: 1200px;
+@mixin screen-sm {
+  @media screen and (max-width: $screen-sm - 1) {
+    @content;
+  }
+}
+@mixin screen-md {
+  @media screen and (min-width : $screen-sm) and (max-width : $screen-md) {
+    @content;
+  }
+}
+@mixin border($colour:$colour-button, $size:0.15rem) {
+  border: $size solid $colour;
+}
+@mixin fullscreen {
+  margin: 0;
+  height: 100%;
+}
+@mixin centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+@function pastel($colour) {
+  $hue: hue($colour);
+  $sat: 100%;
+  $light: 90%;
+  @return hsl($hue, $sat, $light);
+}
+
+* {
+  font-family: 'Noto Sans KR', sans-serif;
+  @include screen-sm {
+    font-size: 65%;
+  };
+  @include screen-md {
+    font-size: 85%;
+  };
+}
+
+html {
+  @include fullscreen;
+  background-image: url($path-image);
+  background-attachment: fixed;
+  background-size: contain;
+}
+
+body {
+  @include fullscreen;
+  background-color: rgba(255,255,255,.6);
+
+  > div {
+    box-sizing: border-box;
+    background-color: $colour-primary;
+    @include centered;
+    width: 60%;
+    height: 100%;
+    padding: $padding-min*10;
+    @include screen-sm {
+      width: 100%;
+    }
+    @include screen-md {
+      width: 75%;
+    }
+  }
+}
+
+.logo {
+  height: auto;
+  width: 20%;
+  max-width: 200px;
+  display: block;
+  @include centered;
+  @include screen-sm {
+    display: none;
+  }
+}
+
+.title {
+  margin-top: inherit;
+  padding: $padding-min*6;
+  text-align: center;
+  font-size: 1.6rem;
+  background-color: darken($colour-primary,$colour-index);
+  color: $colour-accent-dark;
+  @include border ($colour-accent-light, 0.1rem);
+  box-shadow: 2px 2px 4px $colour-accent-light;
+  @include screen-sm {
+    margin-top: $margin-default*2;
+  }
+}
+
+h2 {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.btn {
+  padding: $padding-min*3 $padding-min*5;
+  margin-bottom: $margin-default*2;
+  @include border;
+  width: 40%;
+  max-width: 160px;
+  color: $colour-primary;
+  background: $colour-button;
+  font-size: 1rem;
+  font-weight: bolder;
+  display: block;
+  cursor: pointer;
+  @include screen-sm {
+    max-width: 100px;
+  }
+  @include screen-md {
+    max-width: 130px;
+  }
+
+  &:hover {
+    background: pastel($colour-button);
+    color: $colour-button;
+  }
+
+  &--cancel {
+    background: $colour-contrast;
+    color: $colour-primary;
+    @include border($colour-contrast);
+
+    &:hover {
+      background: pastel($colour-contrast);
+      color: $colour-contrast;
+    }
+  }
+
+  &--center {
+    @include centered;
+  }
+}
+
+.form {
+  width: 100%;
+  padding-top: $margin-default*2;
+
+  &__field {
+    margin-bottom: $margin-default*2;
+
+    & label {
+      font-size: 1rem;
+      display: block;
+      margin-bottom: $margin-default;
+      margin-top: -$margin-default;
+    }
+
+    & input {
+      font-size: 1rem;
+      padding: $padding-min;
+      width: 50%;
+      box-sizing: border-box;
+      @include border($colour-accent-dark,0.1rem);
+      @include screen-sm {
+        width: 100%;
+      };
+      @include screen-md {
+        width: 75%;
+      };
+
+      &:focus {
+        @include border($colour-accent-dark, 0.1rem);
+        outline: 0.1rem solid $colour-accent-dark;
+      }
+    }
+  }
+}

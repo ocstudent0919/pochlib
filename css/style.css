@@ -1,0 +1,159 @@
+* {
+  font-family: "Noto Sans KR", sans-serif;
+}
+@media screen and (max-width: 767px) {
+  * {
+    font-size: 65%;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  * {
+    font-size: 85%;
+  }
+}
+
+html {
+  margin: 0;
+  height: 100%;
+  background-image: url("../images/bookshelfs.jpg");
+  background-attachment: fixed;
+  background-size: contain;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+body > div {
+  box-sizing: border-box;
+  background-color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  height: 100%;
+  padding: 20px;
+}
+@media screen and (max-width: 767px) {
+  body > div {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  body > div {
+    width: 75%;
+  }
+}
+
+.logo {
+  height: auto;
+  width: 20%;
+  max-width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media screen and (max-width: 767px) {
+  .logo {
+    display: none;
+  }
+}
+
+.title {
+  margin-top: inherit;
+  padding: 12px;
+  text-align: center;
+  font-size: 1.6rem;
+  background-color: #f2f2f2;
+  color: #666666;
+  border: 0.1rem solid #cccccc;
+  box-shadow: 2px 2px 4px #cccccc;
+}
+@media screen and (max-width: 767px) {
+  .title {
+    margin-top: 1.66rem;
+  }
+}
+
+h2 {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.btn {
+  padding: 6px 10px;
+  margin-bottom: 1.66rem;
+  border: 0.15rem solid #1D9A8D;
+  width: 40%;
+  max-width: 160px;
+  color: #fff;
+  background: #1D9A8D;
+  font-size: 1rem;
+  font-weight: bolder;
+  display: block;
+  cursor: pointer;
+}
+@media screen and (max-width: 767px) {
+  .btn {
+    max-width: 100px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .btn {
+    max-width: 130px;
+  }
+}
+.btn:hover {
+  background: #ccfffa;
+  color: #1D9A8D;
+}
+.btn--cancel {
+  background: #9a1d2a;
+  color: #fff;
+  border: 0.15rem solid #9a1d2a;
+}
+.btn--cancel:hover {
+  background: #ffccd1;
+  color: #9a1d2a;
+}
+.btn--center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form {
+  width: 100%;
+  padding-top: 1.66rem;
+}
+.form__field {
+  margin-bottom: 1.66rem;
+}
+.form__field label {
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 0.83rem;
+  margin-top: -0.83rem;
+}
+.form__field input {
+  font-size: 1rem;
+  padding: 2px;
+  width: 50%;
+  box-sizing: border-box;
+  border: 0.1rem solid #666666;
+}
+@media screen and (max-width: 767px) {
+  .form__field input {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .form__field input {
+    width: 75%;
+  }
+}
+.form__field input:focus {
+  border: 0.1rem solid #666666;
+  outline: 0.1rem solid #666666;
+}
+
+/*# sourceMappingURL=style.css.map */
