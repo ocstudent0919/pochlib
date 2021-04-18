@@ -3,12 +3,12 @@
 }
 @media screen and (max-width: 767px) {
   * {
-    font-size: 65%;
+    font-size: 75%;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1200px) {
   * {
-    font-size: 85%;
+    font-size: 90%;
   }
 }
 
@@ -30,9 +30,10 @@ body > div {
   background-color: #fff;
   margin-left: auto;
   margin-right: auto;
-  width: 60%;
+  width: 70%;
   height: 100%;
   padding: 20px;
+  overflow: scroll;
 }
 @media screen and (max-width: 767px) {
   body > div {
@@ -41,7 +42,7 @@ body > div {
 }
 @media screen and (min-width: 768px) and (max-width: 1200px) {
   body > div {
-    width: 75%;
+    width: 80%;
   }
 }
 
@@ -95,7 +96,7 @@ h2 {
 }
 @media screen and (max-width: 767px) {
   .btn {
-    max-width: 100px;
+    max-width: 110px;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1200px) {
@@ -154,6 +155,75 @@ h2 {
 .form__field input:focus {
   border: 0.1rem solid #666666;
   outline: 0.1rem solid #666666;
+}
+
+.warning-msg {
+  color: #9a1d2a;
+  font-size: 1rem;
+  margin-bottom: 1.66rem;
+}
+
+.h2--results {
+  margin-bottom: 1.66rem;
+}
+
+.res-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 20px;
+}
+@media screen and (max-width: 767px) {
+  .res-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .res-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.fas {
+  color: #1D9A8D;
+  padding-left: 20px;
+  font-size: 1.8rem;
+  display: inline;
+  float: right;
+}
+
+.result {
+  background-color: #f2f2f2;
+  padding: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 470px;
+  border: 0.1rem solid #cccccc;
+}
+@media screen and (max-width: 767px) {
+  .result {
+    height: 350px;
+  }
+}
+.result__info h3 {
+  font-size: 1.12rem;
+}
+.result__info p {
+  font-size: 0.9rem;
+}
+.result__info--title {
+  display: inline;
+}
+.result__img {
+  margin-top: auto;
+  overflow: hidden;
+}
+.result__img img {
+  height: auto;
+  width: 128px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*# sourceMappingURL=style.css.map */

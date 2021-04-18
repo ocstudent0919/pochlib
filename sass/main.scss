@@ -3,14 +3,13 @@ $colour-primary: #fff;
 $colour-button: #1D9A8D;
 $colour-contrast: complement($colour-button);
 $colour-index: 5%;
+$colour-accent-base: darken($colour-primary,$colour-index);
 $colour-accent-light: darken($colour-primary, $colour-index*4);
-$colour-accent-dark: darken($colour-primary, $colour-index*12);
- // Defining dimensions:
+$colour-accent-dark: darken($colour-primary, $colour-index*12); // Defining dimensions:
 $padding-min: 2px;
-$margin-default: 0.83rem;
-// Defining path:
-$path-image: "../images/bookshelfs.jpg";
-// Defining breakpoints for @media queries:
+$padding-default: $padding-min*10;
+$margin-default: 0.83rem; // Defining path:
+$path-image: "../images/bookshelfs.jpg"; // Defining breakpoints for @media queries:
 $screen-sm: 768px;
 $screen-md: 1200px;
 @mixin screen-sm {
@@ -44,10 +43,10 @@ $screen-md: 1200px;
 * {
   font-family: 'Noto Sans KR', sans-serif;
   @include screen-sm {
-    font-size: 65%;
+    font-size: 75%;
   };
   @include screen-md {
-    font-size: 85%;
+    font-size: 90%;
   };
 }
 
@@ -66,14 +65,15 @@ body {
     box-sizing: border-box;
     background-color: $colour-primary;
     @include centered;
-    width: 60%;
+    width: 70%;
     height: 100%;
-    padding: $padding-min*10;
+    padding: $padding-default;
+    overflow: scroll;
     @include screen-sm {
       width: 100%;
     }
     @include screen-md {
-      width: 75%;
+      width: 80%;
     }
   }
 }
@@ -94,7 +94,7 @@ body {
   padding: $padding-min*6;
   text-align: center;
   font-size: 1.6rem;
-  background-color: darken($colour-primary,$colour-index);
+  background-color: $colour-accent-base;
   color: $colour-accent-dark;
   @include border ($colour-accent-light, 0.1rem);
   box-shadow: 2px 2px 4px $colour-accent-light;
@@ -121,7 +121,7 @@ h2 {
   display: block;
   cursor: pointer;
   @include screen-sm {
-    max-width: 100px;
+    max-width: 110px;
   }
   @include screen-md {
     max-width: 130px;
@@ -179,6 +179,75 @@ h2 {
         @include border($colour-accent-dark, 0.1rem);
         outline: 0.1rem solid $colour-accent-dark;
       }
+    }
+  }
+}
+
+.warning-msg{
+  color: $colour-contrast;
+  font-size: 1rem;
+  margin-bottom: $margin-default*2;
+}
+
+.h2--results {
+  margin-bottom: $margin-default*2;
+}
+
+.res-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: $padding-default;
+  @include screen-sm {
+    grid-template-columns: 1fr;
+  }
+  @include screen-md {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.fas {
+  color: $colour-button;
+  padding-left: $padding-default;
+  font-size: 1.8rem;
+  display: inline;
+  float: right;
+}
+
+.result {
+  background-color: $colour-accent-base;
+  padding: $padding-min*5;
+  margin-bottom: $padding-default;
+  display: flex;
+  flex-direction: column;
+  height: 470px;
+  @include border ($colour-accent-light, 0.1rem);
+  @include screen-sm {
+    height: 350px;
+  }
+
+  &__info {
+    & h3 {
+      font-size: 1.12rem;
+    }
+
+    & p {
+      font-size: 0.90rem;
+    }
+
+    &--title {
+      display: inline;
+    }
+  }
+
+  &__img {
+    margin-top: auto;
+    overflow: hidden;
+
+    & img {
+      height: auto;
+      width: 128px;
+      display: block;
+      @include centered;
     }
   }
 }
