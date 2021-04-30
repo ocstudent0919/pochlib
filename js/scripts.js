@@ -338,26 +338,24 @@ function searchBook() {
     cleanOutputList(listOutput);
   }
   if (url) {
-    fetch(url, {
-        method: "get"
-      })
-      .then(response => response.json())
-      .then(jsonData => {
+    let request = new XMLHttpRequest();
+    request.open("GET", url);
+    request.send();
+    request.onreadystatechange = function() {
+      if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+        let jsonData = JSON.parse(this.responseText);
         if (jsonData.totalItems === 0) {
           resultsContainer.style.display = "block";
           message.style.display = "block";
-          return false;
         } else {
           displayResults(jsonData, listOutput);
           message.style.display = "none";
           resultsContainer.style.display = "block";
-          return true;
         }
-      })
-      .catch(err => {
-        console.error("Erreur :", err);
-        return false;
-      })
+      } else if (this.status !== 200) {
+        console.error("Network request failed. Returned status of " + this.status);
+      }
+    }
   }
 }
 
